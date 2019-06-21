@@ -5,13 +5,13 @@ jobs:
       - image: circleci/node:10.15.3 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
+      - run: npm install # run the `echo` command
   test:
     docker: # use the docker executor type; machine and macos executors are also supported
       - image: circleci/node:10.15.3 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
-      - run: npm test # run the `echo` command
+      - run: npm install && npm test # run the `echo` command
 workflows:
   version: 2
   build_and_test:
